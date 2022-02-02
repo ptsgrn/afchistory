@@ -1,6 +1,6 @@
 /* jshint moz: true */
 $( document ).ready( function () {
-    const API_ROOT = "https://en.wikipedia.org/w/api.php",
+    const API_ROOT = "https://th.wikipedia.org/w/api.php",
           API_SUFFIX = "&format=json&callback=?&continue=",
           ACTION_FLAGS = { "Accepted": 1, "Declined": 2, "Commented": 4, "Edited": 8 };
 
@@ -78,28 +78,28 @@ $( document ).ready( function () {
             $.each( data, function ( index, edit ) {
                 if ( !( /afch|AFCH/.test( edit.comment ) ) ) return;
                 statistics.afch++;
-                var link = "https://en.wikipedia.org/wiki/" +
+                var link = "https://th.wikipedia.org/wiki/" +
                     encodeURIComponent( edit.title );
 
                 // Determine the action
                 var action = "Edited";
                 var color = "none"; // background color
                 var noRow = false;
-                if ( edit.comment.indexOf( "Declining" ) > -1 ) {
+                if ( edit.comment.indexOf( "ตีกลับฉบับร่าง:" ) > -1 ) {
                     action = "Declined";
                     color = "rgba(255, 200, 200, 0.75)";
                     statistics.decline++;
-                } else if ( /Publishing|Created/.test( edit.comment ) ) {
+                } else if ( /กำลังเผยแพร่ฉบับร่าง|Created/.test( edit.comment ) ) {
                     action = "Accepted";
                     color = "rgba(200, 255, 200, 0.75)";
                     statistics.accept++;
-                } else if ( edit.comment.indexOf( "Commenting" ) > -1 ) {
+                } else if ( edit.comment.indexOf( "แสดงความเห็น" ) > -1 ) {
                     action = "Commented";
                     statistics.comment++;
-                } else if ( edit.comment.indexOf( "moved" ) > -1 ) {
+                } else if ( edit.comment.indexOf( "ย้าย" ) > -1 ) {
                     action = "Moved";
                     noRow = true;
-                } else if ( edit.comment.indexOf( "Cleaning" ) > -1 ) {
+                } else if ( edit.comment.indexOf( "เก็บกวาดฉบับร่าง" ) > -1 ) {
                     action = "Cleaned";
                     noRow = true;
                 }
