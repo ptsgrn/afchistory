@@ -1,7 +1,7 @@
 /* jshint moz: true */
 $( document ).ready( function () {
     const API_ROOT = "https://th.wikipedia.org/w/api.php",
-          API_SUFFIX = "&format=json&callback=?&ucstart=2021-07-01T00%3A00%3A00.000Z&continue=",
+          API_SUFFIX = "&format=json&callback=?&ucend=2021-07-01T00%3A00%3A00.000Z&continue=",
           ACTION_FLAGS = { "Accepted": 1, "Declined": 2, "Commented": 4, "Edited": 8 };
 
     var showHistory = function () {
