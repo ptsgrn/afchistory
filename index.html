@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>AfC Review History</title>
+    <title>ประวัติการทบทวนฉบับร่าง Articles for creation</title>
     <link href="css/mw.css" rel="stylesheet" />
     <link href="css/afchistory.css" rel="stylesheet" />
 
@@ -10,13 +10,12 @@
     <script src="js/afchistory.js"></script>
   </head>
   <body>
-    <h1>Articles for Creation Review History</h1>
-    <nav style="font-size: 80%"><a href="https://tools.wmflabs.org/apersonbot/">Tools</a> &gt; <b>AfC History</b></nav>
-    <p>This tool shows a list of a user's <a href="https://en.wikipedia.org/wiki/Wikipedia:Articles_for_creation">Articles for Creation</a> reviews. In most cases, you won't be able to see pages that have been deleted, either due to <a href="https://en.wikipedia.org/wiki/Wikipedia:Criteria_for_speedy_deletion#G13">G13</a> or some other reason, so both accepted and declined counts might be lower than they should be.</p>
-    <label for="username">Username:</label>
+    <h1>ประวัติการทบทวนฉบับร่างใน Articles for Creation</h1>
+    <p>เครื่องมือนี้จะแสดงรายการการทบทวนฉบับร่าง <a href="https://en.wikipedia.org/wiki/Wikipedia:Articles_for_creation">Articles for Creation</a> ในกรณีส่วนใหญ่ คุณจะไม่สามารถเห็นการมีส่ววนร่วมในหน้าที่ถูกลบได้ อาจจะเนื่องด้วย <a href="https://th.wikipedia.org/wiki/วิกิพีเดีย:เงื่อนไขสำหรับการลบทันที#ท10">ท10</a> หรือเพราะเหตุผลใดก็ตาม ดังนั้นการประวัติการเผยแพร่ฉบับร่างและปัดตกอาจน้อยกว่าความเป็นจริง</p>
+    <label for="username">ชื่อผู้ใช้:</label>
     <input type="text" id="username" class="mw-ui-input mw-ui-input-inline"/>
     <button id="submit" class="mw-ui-button mw-ui-constructive">
-      Submit
+      ค้นหา
     </button>
     <br />
     <output id="error" style="display: none;"></output>
@@ -24,35 +23,35 @@
       <div id="permalink"></div>
       <div id="statistics"></div>
       <div id="checkbox-filters">
-        Filter:
+        ตัวกรอง:
         <label>
           <input type="checkbox" name="filter" value="1" checked />
-          Accepted
+          ยอมรับ
         </label>
         <label>
           <input type="checkbox" name="filter" value="2" checked />
-          Declined
+          ปัดตก
         </label>
         <label>
           <input type="checkbox" name="filter" value="4" />
-          Commented
+          แสดงความเห็น
         </label>
         <label>
           <input type="checkbox" name="filter" value="8" />
-          Edited
+          แก้ไข
         </label>
       </div>
       <table>
         <tr>
-          <th>Page</th>
-          <th>Timestamp</th>
-          <th>Action</th>
+          <th>หน้า</th>
+          <th>ตราเวลา</th>
+          <th>การกระทำ</th>
         </tr>
       </table>
     </output>
     <br />
     <footer>
-      <a href="https://en.wikipedia.org/wiki/User:Enterprisey" title="Enterprisey's user page on the English Wikipedia">Enterprisey</a> (<a href="https://en.wikipedia.org/wiki/User_talk:Enterprisey" title="Enterprisey's talk page on the English Wikipedia">talk!</a>) • <a href="https://github.com/APerson241/afchistory" title="Source code on GitHub">Source code</a> • <a href="https://github.com/APerson241/afchistory/issues" title="Issues on GitHub">Issues</a>
+      เครื่องมือนี้มีต้นฉบับโดย <a href="https://en.wikipedia.org/wiki/User:Enterprisey" title="ดูหน้าผู้ใช้ของ Enterprisey บนวิกิพีเดียภาษาอังกฤษ">Enterprisey</a> (<a href="https://en.wikipedia.org/wiki/User_talk:Enterprisey" title="หน้าคุยกับผู้ใช้ของ Enterprisey">คุย</a>) • <a href="https://github.com/ptsgrn/afchistory" title="โค้ดต้นฉบับบนกิตฮับ">ซอร์สโค้ด</a> • <a href="https://github.com/ptsgrn/afchistory/issues" title="แจ้งปัญหา">พบปัญหา?</a>
     </footer>
   </body>
 </html>

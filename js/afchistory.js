@@ -13,7 +13,7 @@ $( document ).ready( function () {
             $( "#error" ).show();
             $( "#error" ).append( $( "<div>" )
                                .addClass( "errorbox" )
-                               .text( "No username specified." ) );
+                               .text( "ไม่ได้ระบุชื่อผู้ใช้" ) );
             return;
         }
 
@@ -25,7 +25,7 @@ $( document ).ready( function () {
         $( "#statistics" ).empty();
         $( "#submit" )
             .prop( "disabled", true )
-            .text( "Loading..." );
+            .text( "กำลังโหลด..." );
         $( "#username" )
             .prop( "disabled", true );
         $( "#result" ).show();
@@ -45,8 +45,8 @@ $( document ).ready( function () {
             .append( "(" )
             .append( $( "<a>" )
                 .attr( "href", permalink )
-                .text( "permalink" ) )
-            .append( " to these results)" );
+                .text( "ลิงก์ถาวร" ) )
+            .append( "ของผลลัพธ์นี้)" );
 
         var baseUrl = API_ROOT + "?action=query&list=usercontribs&ucuser=" + username + "&uclimit=500&ucprop=title|timestamp|comment&ucnamespace=0|5|118&ucshow=!new" + API_SUFFIX;
         var query = function ( continueData ) {
@@ -73,8 +73,8 @@ $( document ).ready( function () {
         var statistics = { afch: 0, accept: 0, decline: 0, comment: 0 };
         var display = function ( data, done ) {
             data = data.query.usercontribs;
-            $( "#statistics" ).text( "Loaded " + data.length +
-                                     " edits." + ( done ? " Almost done!" : "" ) );
+            $( "#statistics" ).text( "โหลดแล้วทั้งสิ้น " + data.length +
+                                     " การแก้ไข" + ( done ? " ใกล้เสร็จแล้ว!" : "" ) );
             $.each( data, function ( index, edit ) {
                 if ( !( /afch|AFCH/.test( edit.comment ) ) ) return;
                 statistics.afch++;
@@ -122,8 +122,8 @@ $( document ).ready( function () {
 
                 if ( ( statistics.afch % 500 ) == 0 ) {
                     $( "#statistics" )
-                        .text( "Loaded " + data.length + " edits. Examined " +
-                               statistics.afch + " of them." );
+                        .text( "โหลดทั้งสิ้น " + data.length + " การแก้ไข เลือกเฉพาะที่เป็นการใช้ AFCH มา " +
+                               statistics.afch + " การแก้ไขจากทั้งหมด" );
                 }
             } ); // end each()
 
@@ -137,17 +137,17 @@ $( document ).ready( function () {
                         "%)";
                 };
             $( "#statistics" )
-                .append( "Examined " + numberWithCommas( statistics.afch ) +
-                         " reviews" + ( done ? "" : " so far" ) + ":" )
+                .append( "จัดการแล้ว " + numberWithCommas( statistics.afch ) +
+                         " การแก้ไข")
                 .append( $( "<ul>" )
                          .append( $( "<li>" )
-                                  .text( "Accepts: " +
+                                  .text( "ยอมรับ: " +
                                          formatType( statistics.accept ) ) )
                          .append( $( "<li>" )
-                                  .text( "Declines: " +
+                                  .text( "ปัดตก: " +
                                          formatType( statistics.decline ) ) )
                          .append( $( "<li>" )
-                                  .text( "Comments: " +
+                                  .text( "แสดงความเห็น: " +
                                          formatType( statistics.comment ) ) ) );
 
             if ( done ) {
